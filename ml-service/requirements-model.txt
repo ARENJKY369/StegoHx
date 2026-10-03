@@ -1,0 +1,2 @@
+# Optional: enables the pluggable ONNX steganalysis model (see app/analyzers/model_inference.py)
+onnxruntime>=1.18

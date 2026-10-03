@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: stegohx-engine
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 32MB
+  datasource:
+    url: jdbc:h2:file:./data/stegohx;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  jackson:
+    # one JSON naming convention across the whole stack (engine, analyzer, console)
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+
+stegohx:
+  analyzer:
+    base-url: ${STEGOHX_ANALYZER_URL:http://127.0.0.1:8000}
+    timeout-ms: 10000
+  cors:
+    allowed-origins: "http://localhost:3000,http://127.0.0.1:3000"
+
+logging:
+  level:
+    com.stegohx: INFO
