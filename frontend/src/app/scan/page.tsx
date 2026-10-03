@@ -9,6 +9,7 @@ import {
   ScanResponse,
   api,
   formatBytes,
+  scoreColor,
   verdictColor,
 } from "@/lib/api";
 
@@ -137,13 +138,13 @@ export default function ScanPage() {
                         <div className="row" style={{ gap: 8, flexWrap: "nowrap" }}>
                           <span
                             className="score-cell"
-                            style={{ color: verdictColor(String(analysis.verdict)), minWidth: 44 }}
+                            style={{ color: scoreColor(f.score), minWidth: 44 }}
                           >
                             {f.score.toFixed(2)}
                           </span>
                           <Bar
                             value={f.score}
-                            color={f.applicable ? verdictColor(String(analysis.verdict)) : "var(--surface-3)"}
+                            color={f.applicable ? scoreColor(f.score) : "var(--surface-3)"}
                           />
                         </div>
                       </td>

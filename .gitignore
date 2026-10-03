@@ -39,3 +39,4 @@ Thumbs.db
 # --- Tool output ---
 output/
 reports/
+*.tsbuildinfo

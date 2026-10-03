@@ -201,6 +201,14 @@ export function verdictColor(verdict: string): string {
   }
 }
 
+/** Color for a raw 0..1 suspicion score. */
+export function scoreColor(score: number): string {
+  if (score >= 0.7) return "var(--danger)";
+  if (score >= 0.45) return "var(--warn-high)";
+  if (score >= 0.2) return "var(--warn)";
+  return "var(--ok)";
+}
+
 export function base64ToBlob(base64: string, mime: string): Blob {
   const bin = atob(base64);
   const bytes = new Uint8Array(bin.length);
